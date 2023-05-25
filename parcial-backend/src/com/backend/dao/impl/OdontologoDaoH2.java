@@ -4,9 +4,7 @@ import com.backend.dao.H2Connection;
 import com.backend.dao.IDao;
 import com.backend.entity.Odontologo;
 import org.apache.log4j.Logger;
-import org.h2.command.Prepared;
 
-import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +42,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             if(connection != null) {
                 try {
                     connection.rollback();
-                    System.out.println("No se pudo guardar el odontólogo.");
+                    System.out.println("No se pudo guardar al odontólogo.");
                 } catch (SQLException ex) {
                     LOGGER.error(ex.getMessage());
                     ex.printStackTrace();
