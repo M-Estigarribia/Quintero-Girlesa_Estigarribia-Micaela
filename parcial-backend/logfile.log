@@ -4,3 +4,10 @@
  Id: 1 Odontólogo Carlos Rodriguez, matrícula :48270321., 
  Id: 2 Odontólogo Perla Blanco, matrícula :55555222., 
  Id: 3 Odontólogo Pepito Perez, matrícula :555555.]
+[2023-05-25 20:26:37] [ INFO ] [OdontologoDaoH2:38] Se ha registrado al odontólogo: 
+ Id: 4 Odontólogo Pepito Perez, matrícula :555555.
+[2023-05-25 20:26:37] [ INFO ] [OdontologoDaoH2:80] Listado de todos los odontólogos: [
+ Id: 1 Odontólogo Carlos Rodriguez, matrícula :48270321., 
+ Id: 2 Odontólogo Perla Blanco, matrícula :55555222., 
+ Id: 3 Odontólogo Pepito Perez, matrícula :555555., 
+ Id: 4 Odontólogo Pepito Perez, matrícula :555555.]
