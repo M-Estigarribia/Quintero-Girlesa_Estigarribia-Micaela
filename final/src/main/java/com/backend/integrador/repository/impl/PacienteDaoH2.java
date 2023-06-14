@@ -16,6 +16,21 @@ public class PacienteDaoEnMemoria implements IDao {
         this.pacienteRepository = pacienteRepository;
     }
 
+    private Paciente transformarAResultadoPaciente(ResultSet resultSet) throws SQLException {
+        int id = resultSet.getInt("ID");
+        String nombre = resultSet.getString("NOMBRE");
+        String apellido = resultSet.getString("APELLIDO");
+        String dni = resultSet.getString("DNI");
+        LocalDate fechaIngreso = resultSet.getDate("FECHAINGRESO").toLocalDate();
+        int idDomicilio = resultSet.getInt("IDDOMICILIO");
+        String calle = resultSet.getString("CALLE");
+        int numero = resultSet.getInt("NUMERO");
+        String localidad = resultSet.getString("LOCALIDAD");
+        String provincia = resultSet.getString("PROVINCIA");
+        Domicilio domicilio = new Domicilio(idDomicilio, calle, numero, localidad, provincia);
+        return new Paciente(id, nombre, apellido, dni, fechaIngreso, domicilio);
+    }
+
     @Override
     public Paciente guardarPaciente(Paciente paciente) {
         pacienteRepository.add(paciente);
