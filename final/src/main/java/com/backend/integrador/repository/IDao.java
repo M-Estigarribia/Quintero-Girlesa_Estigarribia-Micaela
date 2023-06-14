@@ -15,4 +15,8 @@ public interface IDao<T> {
     T buscarPorCriterio(String criterio);
 
     T actualizar (T t);
+    Paciente guardarPaciente(Paciente paciente);
+    List<Paciente> listarPacientes();
+    Paciente modificarPaciente(Paciente paciente);
+    boolean eliminarPaciente(int id);
 }
