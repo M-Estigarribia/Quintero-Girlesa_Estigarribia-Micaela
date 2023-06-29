@@ -89,7 +89,7 @@ public class PacienteController {
     //PUT
     @Operation(summary = "Actualiza un paciente")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Paciente actualizado correctamente",
+            @ApiResponse(responseCode = "201", description = "Paciente actualizado correctamente",
                     content = {@Content(mediaType = "application/json",
                             schema = @Schema(implementation = PacienteDto.class))}),
             @ApiResponse(responseCode = "400", description = "Datos incorrectos",

@@ -67,7 +67,7 @@ public class TurnoController {
 
     //POST
 
-    @Operation(summary = "Guarda un nuevo turno")
+    @Operation(summary = "Guarda un nuevo turno, pasando ID de paciente, ID de odontólogo y un LocalDateTime")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "201", description = "Turno guardado correctamente",
                     content = {@Content(mediaType = "application/json",
