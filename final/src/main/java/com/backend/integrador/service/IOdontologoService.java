@@ -2,18 +2,26 @@ package com.backend.integrador.service;
 
 import com.backend.integrador.dto.OdontologoDto;
 import com.backend.integrador.entity.Odontologo;
+import com.backend.integrador.exceptions.ConflictException;
 import com.backend.integrador.exceptions.ResourceNotFoundException;
 
 import java.util.List;
 
 public interface IOdontologoService {
+    //POST
+    OdontologoDto guardarOdontologo(Odontologo Odontologo) throws ConflictException;
+
+    //GET
     OdontologoDto buscarOdontologoPorId(Long id);
 
     List<OdontologoDto> listarOdontologos();
 
-    OdontologoDto registrarOdontologo(Odontologo odontologo);
+    //PUT
+    OdontologoDto actualizarOdontologo(Odontologo Odontologo) throws ResourceNotFoundException;
 
-    OdontologoDto actualizarOdontologo(Odontologo odontologo);
-
+    //DELETE
     void eliminarOdontologo(Long id) throws ResourceNotFoundException;
+
+
+
 }
