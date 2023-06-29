@@ -1,19 +1,22 @@
-package com.backend.dto;
+package com.backend.integrador.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OdontologoDto {
     private Long id;
-    private String matricula;
     private String nombre;
     private String apellido;
+    private String matricula;
 
     public OdontologoDto() {
     }
 
-    public OdontologoDto(Long id, String matricula, String nombre, String apellido) {
+    public OdontologoDto(Long id, String nombre, String apellido, String matricula) {
         this.id = id;
-        this.matricula = matricula;
         this.nombre = nombre;
         this.apellido = apellido;
+        this.matricula = matricula;
     }
 
     public Long getId() {
@@ -22,14 +25,6 @@ public class OdontologoDto {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
     }
 
     public String getNombre() {
@@ -46,5 +41,16 @@ public class OdontologoDto {
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) { this.matricula = matricula; }
+
+    @Override
+    public String toString() {
+        return nombre + " " + apellido + " - matrícula: "+ matricula ;
     }
 }
