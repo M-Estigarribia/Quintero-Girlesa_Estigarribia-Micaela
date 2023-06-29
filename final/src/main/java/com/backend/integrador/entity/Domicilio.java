@@ -1,36 +1,52 @@
 package com.backend.integrador.entity;
 
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+
+@Entity
+@Table(name = "DOMICILIOS")
+
 public class Domicilio {
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotNull(message = "La calle no puede ser nula")
+    @NotBlank(message = "Especifica la calle")
+    @Size(min=2, max = 50, message = "La calle puede tener un mínimo de {min} hasta un máximo de {max} caracteres.")
+    @Pattern(regexp = "(?=.*[A-z].*[A-z])[A-z0-9\\s]+", message = "La calle precisa al menos 2 letras.")
     private String calle;
-    private int numero;
+
+    @NotNull(message = "El número no puede ser nulo")
+    @Positive(message = "El número de calle no puede ser un número negativo.")
+    @Digits(integer=10, fraction = 0, message = "El nro calle puede tener hasta {integer} cifras.")
+    private Long numero;
+
+    @NotNull(message = "La localidad no puede ser nula")
+    @NotBlank(message = "Especifica la localidad")
+    @Size(min=2, max = 50, message = "La localidad puede tener un mínimo de {min} hasta un máximo de {max} caracteres.")
+    @Pattern(regexp = "(?=.*[A-z].*[A-z])[A-z0-9\\s]+", message = "La localidad precisa al menos 2 letras.")
     private String localidad;
+
+    @NotNull(message = "La provincia no puede ser nula")
+    @NotBlank(message = "Especifica la provincia")
+    @Size(min= 3 , max = 50, message = "La provincia puede tener un mínimo de {min} hasta un máximo de {max} caracteres.")
+    @Pattern(regexp = "(?=.*[A-z].*[A-z])[A-z0-9\\s]+", message = "La provincia precisa al menos 2 letras.")
     private String provincia;
 
     public Domicilio() {
     }
 
-    public Domicilio(int id, String calle, int numero, String localidad, String provincia) {
-        this.id = id;
+    public Domicilio( String calle, Long numero, String localidad, String provincia) {
         this.calle = calle;
         this.numero = numero;
         this.localidad = localidad;
         this.provincia = provincia;
     }
 
-    public Domicilio( String calle, int numero, String localidad, String provincia) {
-        this.calle = calle;
-        this.numero = numero;
-        this.localidad = localidad;
-        this.provincia = provincia;
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getCalle() {
@@ -41,11 +57,11 @@ public class Domicilio {
         this.calle = calle;
     }
 
-    public int getNumero() {
+    public Long getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(Long numero) {
         this.numero = numero;
     }
 
@@ -63,10 +79,5 @@ public class Domicilio {
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
-    }
-
-    @Override
-    public String toString() {
-        return "\n Domicilio Id: " + id + "\n   Calle: " + calle + "\n   Número: " + numero + "\n   Localidad: " + localidad + "\n   Provincia: " + provincia;
     }
 }

@@ -1,21 +1,36 @@
 package com.backend.integrador.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.*;
+import javax.validation.constraints.*;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name ="TURNOS")
 public class Turno {
-    private int Id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long Id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="paciente_id", nullable = false)
+    @NotNull(message = "El paciente no puede ser nulo.")
     private Paciente paciente;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="odontologo_id", nullable = false)
+    @NotNull(message = "El odontólogo no puede ser nulo.")
     private Odontologo odontologo;
+
+    @NotNull(message = "Especifica la fecha y hora del turno.")
+    @FutureOrPresent(message = "La fecha no puede ser anterior a la actual.")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime fechaHora;
 
     public Turno(){
-    }
-
-    public Turno(int id, Paciente paciente, Odontologo odontologo, LocalDateTime fechaHora) {
-        Id = id;
-        this.paciente = paciente;
-        this.odontologo = odontologo;
-        this.fechaHora = fechaHora;
     }
 
     public Turno( Paciente paciente, Odontologo odontologo, LocalDateTime fechaHora) {
@@ -24,11 +39,11 @@ public class Turno {
         this.fechaHora = fechaHora;
     }
 
-    public int getId() {
+    public Long getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         Id = id;
     }
 
