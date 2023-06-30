@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/b6ec4259ad.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Pacientes</title>
+</head>
+<body>
+    <header>
+        <h1>Clínica Odontológica</h1>
+        <button type="button" class="btn btn-outline-secondary" id="volverAtras"><i class="fa-solid fa-arrow-left"></i>Atrás</button>
+    </header>
+    <main>
+
+        <div class="title-container">
+            <h3>Pacientes</h3>
+        </div>
+
+        <div id="erroresDiv">
+            <section id="error" class="alert alert-danger"></section>
+            <section id="success" class="alert alert-success"></section>
+        </div>
+
+
+        <section class="container">
+            <section>
+                <h4>Listado de pacientes <button type="button" class="btn btn-outline-secondary" id="btn-reload"><i class="fa-solid fa-arrows-rotate"></i></button></h4>
+                <table class="table">
+                    <thead>
+                      <tr class="table-headers">
+                            <th scope="col">Datos personales</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Acciones</th> 
+                        </tr>    
+                    </thead>
+                    <tbody id="pacienteTableBody"></tbody>
+                </table>
+            </section>
+            </br>
+            </br>
+            </br>
+            <section>
+                <div class="col-xs-3">
+                    <form  id="search-form">
+                        <div class="mb-3">
+                          <h4>Buscar paciente por ID</h4>
+                          <input type="number" class="form-control" id="search"  name="search" class="search-input">
+                          <button type="submit" class="btn btn-success"><i class=" icon fa-solid fa-magnifying-glass"></i> </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section class="add-form-section">
+                <h4>Registrar paciente</h4>
+
+                <form>
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label" >Nombre</label>
+                      <input type="text" class="form-control" id="nombre" placeholder="Ingresa el nombre del paciente">
+                    </div>
+                    <div class="mb-3">
+                      <label for="apellido" class="form-label" >Apellido</label>
+                      <input type="text" class="form-control" id="apellido" placeholder="Ingresa el apellido del paciente">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dni" class="form-label">DNI</label>
+                        <input type="number" class="form-control" id="dni">
+                      </div>
+                    <div class="mb-3 ">
+                      <label class="form-label" for="fechaIngreso">Fecha de registro</label>
+                      <input type="date" class="form-control" id="fechaIngreso">
+                    </div>
+                    <div class="mb-3">
+                        <label for="calle" class="form-label" >Calle</label>
+                        <input type="text" class="form-control" id="calle" placeholder="Ingresa la calle">
+                    </div>
+                    <div class="mb-3">
+                        <label for="numero" class="form-label">Número</label>
+                        <input type="number" class="form-control" id="numero" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="localidad" class="form-label" >Localidad</label>
+                        <input type="text" class="form-control" id="localidad" placeholder="Ingresa la localidad">
+                    </div>
+                    <div class="mb-3">
+                        <label for="provincia" class="form-label" >Provincia</label>
+                        <input type="text" class="form-control" id="provincia" placeholder="Ingresa la provincia">
+                    </div>
+                      
+                      
+                    <button type="submit" class="btn btn-success" id="btnAdd">Registrar paciente</button>
+                    <button type="reset" class="btn btn-secondary">Cancelar</button>
+                </form>
+            </section>
+            <section class="edit-form-section">
+                <h4>Editar paciente</h4>
+                <form action="" class="form">
+                    <div class="mb-3">
+                        <label for="nombreEdit" class="form-label" >Nombre</label>
+                        <input type="text" class="form-control" id="nombreEdit" placeholder="Ingresa el nombre del paciente">
+                      </div>
+                      <div class="mb-3">
+                        <label for="apellidoEdit" class="form-label" >Apellido</label>
+                        <input type="text" class="form-control" id="apellidoEdit" placeholder="Ingresa el apellido del paciente">
+                      </div>
+                      <div class="mb-3">
+                          <label for="dniEdit" class="form-label">DNI</label>
+                          <input type="number" class="form-control" id="dniEdit">
+                        </div>
+                      <div class="mb-3 ">
+                        <label class="form-label" for="fechaIngresoEdit">Fecha de registro</label>
+                        <input type="date" class="form-control" id="fechaIngresoEdit">
+                      </div>
+                      <div class="mb-3">
+                          <label for="calleEdit" class="form-label" >Calle</label>
+                          <input type="text" class="form-control" id="calleEdit" placeholder="Ingresa la calle">
+                      </div>
+                      <div class="mb-3">
+                          <label for="numeroEdit" class="form-label">Número</label>
+                          <input type="number" class="form-control" id="numeroEdit" >
+                      </div>
+                      <div class="mb-3">
+                          <label for="localidadEdit" class="form-label" >Localidad</label>
+                          <input type="text" class="form-control" id="localidadEdit" placeholder="Ingresa la localidad">
+                      </div>
+                      <div class="mb-3">
+                          <label for="provinciaEdit" class="form-label" >Provincia</label>
+                          <input type="text" class="form-control" id="provinciaEdit" placeholder="Ingresa la provincia">
+                      </div>
+                        
+                      <button type="submit" class="btn btn-success" id="btnEdit">Editar paciente</button>
+                      <button type="reset" class="btn btn-secondary">Cancelar</button>
+                </form>
+            </section>
+        </section>
+    </main>
+    <script src="./js/main.js"></script>
+    <script src="./js/pacientes.js"></script>
+</body>
+</html>

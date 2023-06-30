@@ -91,7 +91,6 @@ public class TurnoController {
         String localDateTimeString = (String) turnoRequest.get("fechaHora");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         LocalDateTime localDateTime = LocalDateTime.parse(localDateTimeString, formatter);
-
         TurnoDto nuevoTurnoDto = turnoService.guardarTurno(pacienteId, odontologoId, localDateTime);
         return new ResponseEntity<TurnoDto>(nuevoTurnoDto, null, HttpStatus.CREATED);
     }

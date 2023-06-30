@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/b6ec4259ad.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Odontólogos</title>
+</head>
+<body>
+    <header>
+        <h1>Clínica Odontológica</h1>
+        <button type="button" class="btn btn-outline-secondary" id="volverAtras"><i class="fa-solid fa-arrow-left"></i>Atrás</button>
+    </header>
+    <main class="container">
+        <div class="title-container">
+            <h3>Odontólogos</h3>
+        </div>
+
+        <div id="erroresDiv">
+            <section id="error"></section>
+            <section id="success"></section>
+        </div>
+        <section>
+            <section>
+                <h4>Listado de odontólogos <button type="button" class="btn btn-outline-secondary" id="btn-reload"><i class="fa-solid fa-arrows-rotate"></i></button></h4>
+                
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Matrícula</th>
+                        <th scope="col">Acciones</th>
+        
+                      </tr>
+                    </thead>
+                    <tbody id="odontologoTableBody"></tbody>
+                  </table>
+            </section>
+                </br>
+                </br>
+                </br>
+            <section>
+                <div class="col-xs-3">
+                    <form  id="search-form">
+                        <div class="mb-3">
+                          <h4>Buscar odontólogo por ID</h4>
+                          <input type="number" class="form-control" id="search"  name="search" class="search-input">
+                          <button type="submit" class="btn btn-success"><i class=" icon fa-solid fa-magnifying-glass"></i> </button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </section>
+            <section class="add-form-section">
+                <h4>Registrar odontólogo</h4>
+
+                <form>
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label" >Nombre</label>
+                      <input type="text" class="form-control" id="nombre" placeholder="Ingresa el nombre del odontólogo">
+                    </div>
+                    <div class="mb-3">
+                      <label for="apellido" class="form-label" >Apellido</label>
+                      <input type="text" class="form-control" id="apellido" placeholder="Ingresa el apellido del odontólogo">
+                    </div>
+                    <div class="mb-3 ">
+                      <label class="form-label" for="matricula" aria-describedby="matriculaHelper">Matrícula</label>
+                      <input type="text" class="form-control" id="matricula" placeholder="Ingresa la matrícula del odontólogo">
+                      <div id="matriculaHelper" class="form-text">La matrícula del odontólogo tiene formato "ODO-" seguido de 10 números.</div>
+                    </div>
+                    <button type="submit" class="btn btn-success" id="btnAdd">Registrar odontólogo</button>
+                    <button type="reset" class="btn btn-secondary">Cancelar</button>
+                </form>
+
+            </section>
+            <section class="edit-form-section">
+                <h4>Editar odontólogo</h4>
+
+                <form>
+                    <div class="mb-3">
+                      <label for="nombreEdit" class="form-label" >Nombre</label>
+                      <input type="text" class="form-control" id="nombreEdit" placeholder="Ingresa el nombre del odontólogo">
+                    </div>
+                    <div class="mb-3">
+                      <label for="apellidoEdit" class="form-label" >Apellido</label>
+                      <input type="text" class="form-control" id="apellidoEdit" placeholder="Ingresa el apellido del odontólogo">
+                    </div>
+                    <div class="mb-3 ">
+                      <label class="form-label" for="matriculaEdit" aria-describedby="matriculaEditHelper">Matrícula</label>
+                      <input type="text" class="form-control" id="matriculaEdit" placeholder="Ingresa la matrícula del odontólogo">
+                      <div id="matriculaEditHelper" class="form-text">La matrícula del odontólogo tiene formato "ODO-" seguido de 10 números.</div>
+                    </div>
+                    <button type="submit" class="btn btn-success" id="btnEdit">Editar odontólogo</button>
+                    <button type="reset" class="btn btn-secondary">Cancelar</button>
+                  </form>
+            </section>
+        </section>
+    </main>
+    <script src="./js/main.js"></script>
+    <script src="./js/odontologos.js"></script>
+</body>
+</html>
